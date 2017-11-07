@@ -9,21 +9,21 @@
 </head>
 <body>
   <header>
-  <img class="logo" src="images/logo.png" alt="logo markethon(moche)">
+    <img class="logo" src="images/logo.png" alt="logo markethon(moche)">
+
+    <form action="profil.html">
+      <input type="text" placeholder="identifiant"><br/>
+      <input type="password" placeholder="***********"><br/>
+      <input type="submit">
+
+    </form>
+  </header>
   <?php
-    echo"echo";
-     include("/HTML/nav.html");
+    include("HTML/nav.html");
+    include("HTML/footer.html");
   ?>
-<form action="profil.html">
-    <input type="text" placeholder="Login"><br/>
-    <input type="password" placeholder="Pass"><br/>
-    <input type="submit">
-    
-  </form>
-</header>
-  
-    
-    
+
+
   
 </body>
 </html>
