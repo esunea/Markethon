@@ -12,7 +12,7 @@
   <img class="logo" src="images/logo.png" alt="logo markethon(moche)">
   <?php
     echo"echo";
-     include("nav.html");
+     include("/HTML/nav.html");
   ?>
 <form action="profil.html">
     <input type="text" placeholder="Login"><br/>
