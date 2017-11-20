@@ -2,15 +2,15 @@
 session_start();
 require("fonctions_affichage.php");
 require("fonctions_util.php");
+test_log();
+
 
 print_head();
 print_header();
-
+print_nav();
   
-  print_nav();
-  
-  upload_file_form();
-  print_footer();
+form_offre();  
+print_footer();
   ?>
 
   
