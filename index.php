@@ -1,16 +1,23 @@
-<?php 
-session_start();
-require("fonctions_affichage.php");
-require("fonctions_util.php");
+<?php
+require_once("class/Page.class.php");
+require_once("class/PagePublic.class.php");
+require_once("class/User.class.php");
 
-print_head();
-print_header();
+$user = User::instanceOf();
 
-  
-  print_nav();
-  
-  upload_file_form();
-  print_footer();
-  ?>
+if($user->isLogged())
+	{
+		$page = Page::instanceOf();
+	}
+	else
+	{
+		$page = PagePublic::instanceOf();
+	}
 
-  
+$page->addContent("<h1>ceci est une page qui marche</h1>");
+
+
+
+
+
+

@@ -9,72 +9,6 @@ function upload_file_form(){
 	<?php
 }
 
-
-function print_head($title = "Markethon"){
-	?>
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<link rel='stylesheet' href='style/style.css'>
-		<title><?= $title?></title>
-	</head>
-	<body>
-
-		<?php
-	}
-	function print_header($connected = false){
-		?>
-		<header>
-			<a href="index.php"><img class="logo" src="images/logo.png" alt="logo markethon(moche)"></a>
-			<?php if(!isset($_SESSION["user"])){ ?>
-			<form action="connexion.php" method="post">
-				<input type="text" name="user" placeholder="identifiant"><br/>
-				<input type="password" name="pwd" placeholder="***********"><br/>
-				<input type="submit">
-			</form>
-			<?php
-		}else {
-			echo "<div>user logged ! you are ".$_SESSION["user"]."<br/>";
-			echo "<a href='deconnexion.php'>Deconnexion</a></div>";
-		}
-		?>
-	</header>
-	<?php
-}
-function print_footer(){
-	?>
-	<footer>
-		<ul>
-			<li><a href="planSite.html">Plan du site</a></li>
-			<li><a href="contact.html">Contact</a></li>
-			<li><a href="mentionsLegales.html">Mentions Légales</a></li>
-		</ul>
-	</footer>
-</body>
-</html>
-<?php
-}
-function print_nav(){
-	?>
-	<nav>
-		<ul>
-			<?php
-			if(isset($_SESSION["user"])){
-				?>
-				<li><a href="ajout_offre.php">ajouter une offre</a></li>
-				<li><a href="show_offers.php">afficher offres</a></li>
-				<li><a href="inscription_entreprise.php">Inscription entreprise</a></li>
-				<?php
-			}
-			?>
-		</ul>
-	</nav>
-	<?php
-}
-
 function form_entreprise(){
 	?>
 	<form action="" method="post">
@@ -121,6 +55,18 @@ function form_offre(){
 
 		<label for="skills">Compétaces</label>
 		<input type="text" id="skills" name="skills"><br/>
+		
+		<label for="workHours">Heures de travail</label>
+		<input type="text" id="workHours" name="workHours"><br/>
+
+		<label for="validThrough">Date D'Expiration</label>
+		<input type="text" id="validThrough" name="validThrough"><br/>
+		
+		<label for="title">Titre</label>
+		<input type="text" id="title" name="title"><br/>
+
+
+		
 
 		<input type="submit" value="Envoyer !">
 
@@ -135,5 +81,18 @@ function show_offers($tab){
 
 function print_error(){
 	echo "<h1> Franchement t'as déconné</h1><br/><p><strong>log error</strong></p>";
+}
+@
+function affiche_form($name_tab, $showName_tab){
+	$chaine = "";
+	foreach ($name_tab as $key => $value) {
+		$chaine .= affiche_input($value, $showName_tab[$key]);
+	}
+	return $chaine;
+}
+
+function affiche_input(String $name,String $showName){
+	return "<label for='$name'>$showName</label>
+		<input type='text' id='$name' name='$name'><br/>\n";
 }
 
